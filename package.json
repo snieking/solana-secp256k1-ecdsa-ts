@@ -1,13 +1,21 @@
 {
-  "name": "solana-secp256k1-ecdsa",
+  "name": "sol-ecdsa-signatures",
   "version": "0.1.0",
   "description": "Sign and verify Secp256k1 ECDSA signatures in TypeScript. Compatible with Solana wallets and on-chain verification.",
-  "module": "src/index.ts",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "type": "module",
+  "files": [
+    "dist",
+    "README.md",
+    "SOLANA-COMPATIBILITY.md",
+    "LICENSE"
+  ],
   "private": false,
   "scripts": {
     "test": "bun test",
-    "build": "bun build src/index.ts --outdir dist --target node"
+    "build": "rm -rf dist && tsc",
+    "prepublishOnly": "bun run build"
   },
   "devDependencies": {
     "@solana/web3.js": "^1.87.6",
@@ -26,7 +34,8 @@
   },
   "license": "MIT",
   "author": {
-    "name": "Adapted from Dean Little's Rust implementation"
+    "name": "Viktor Plane",
+    "url": "https://github.com/snieking"
   },
   "keywords": [
     "solana",
